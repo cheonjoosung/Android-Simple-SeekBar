@@ -1,4 +1,4 @@
-package com.js.seekbar
+package com.js.simple_seekbar
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -19,6 +19,6 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("com.js.seekbar.test", appContext.packageName)
+        assertEquals("com.js.simple_seekbar.test", appContext.packageName)
     }
 }

@@ -1,3 +1,4 @@
+include ':simple_seekbar'
 include ':SeekBar'
 include ':app'
 rootProject.name = "SeekBar"

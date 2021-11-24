@@ -1,4 +1,4 @@
-package com.js.seekbar
+package com.js.simple_seekbar
 
 import org.junit.Test
 
