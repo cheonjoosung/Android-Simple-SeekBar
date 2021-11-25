@@ -2,6 +2,8 @@ package com.js.seekbar
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
+import android.widget.TextView
 import com.js.simple_seekbar.SimpleSeekBar
 
 class MainActivity : AppCompatActivity() {
@@ -9,7 +11,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val seekBar = SimpleSeekBar()
-        seekBar.test()
+        val text = findViewById<SimpleSeekBar>(R.id.simple_seek_bar)
+
+        val button:Button = findViewById(R.id.btn)
+        button.setOnClickListener {
+            text.setText("집에가지마 베이비")
+        }
     }
 }
