@@ -1,29 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <Button
-        android:id="@+id/btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="change"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.50"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_title" />
+    android:layout_height="wrap_content"
+    android:paddingTop="8dp"
+    android:paddingBottom="8dp">
 
     <TextView
-        android:id="@+id/tv_title"
+        android:id="@+id/tv_min_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Test OK"
-        android:textSize="50dp"
+        android:layout_marginTop="4dp"
+        app:layout_constraintEnd_toStartOf="@id/v_seek_bar_second"
+        app:layout_constraintStart_toStartOf="@id/v_seek_bar_second"
+        app:layout_constraintTop_toBottomOf="@id/v_seek_bar_second"
+        tools:text="0" />
+
+    <TextView
+        android:id="@+id/tv_mid_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.50"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        tools:text="500" />
+
+    <TextView
+        android:id="@+id/tv_max_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/v_seek_bar_second"
+        app:layout_constraintStart_toEndOf="@id/v_seek_bar_second"
+        tools:text="1,000" />
+
+    <TextView
+        android:id="@+id/tv_current_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:letterSpacing="-0.01"
+        android:lineSpacingExtra="6sp"
+        android:paddingStart="6dp"
+        android:paddingEnd="6dp"
+        android:textColor="#ffffff"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@id/v_seek_bar_triangle"
+        app:layout_constraintEnd_toEndOf="@id/v_seek_bar_dot"
+        app:layout_constraintStart_toStartOf="@id/v_seek_bar_dot"
+        tools:background="@drawable/bg_round_04_text_purple"
+        tools:text="999" />
+
+    <View
+        android:id="@+id/v_seek_bar_triangle"
+        android:layout_width="8dp"
+        android:layout_height="6dp"
+        android:layout_marginBottom="5dp"
+        android:rotation="90"
+        app:layout_constraintBottom_toTopOf="@id/v_seek_bar_dot"
+        app:layout_constraintEnd_toEndOf="@+id/v_seek_bar_dot"
+        app:layout_constraintStart_toStartOf="@id/v_seek_bar_dot"
+        tools:background="@drawable/bg_triangle_purple" />
+
+    <View
+        android:id="@+id/v_seek_bar_base"
+        android:layout_width="0dp"
+        android:layout_height="8dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
+        android:background="@drawable/bg_round_16_grey"
+        app:layout_constraintBottom_toTopOf="@id/tv_mid_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <View
+        android:id="@+id/v_seek_bar_second"
+        android:layout_width="0dp"
+        android:layout_height="8dp"
+        android:background="@drawable/bg_round_16_purple"
+        app:layout_constraintBottom_toBottomOf="@id/v_seek_bar_base"
+        app:layout_constraintEnd_toEndOf="@id/v_seek_bar_base"
+        app:layout_constraintStart_toStartOf="@id/v_seek_bar_base" />
+
+    <View
+        android:id="@+id/v_seek_bar_dot"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        app:layout_constraintBottom_toBottomOf="@id/v_seek_bar_base"
+        app:layout_constraintEnd_toEndOf="@id/v_seek_bar_base"
+        app:layout_constraintHorizontal_bias="0.96"
+        app:layout_constraintStart_toStartOf="@id/v_seek_bar_base"
+        app:layout_constraintTop_toTopOf="@id/v_seek_bar_base"
+        tools:background="@drawable/bg_dot_purple" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
