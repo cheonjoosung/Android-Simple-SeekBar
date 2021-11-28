@@ -9,7 +9,7 @@
 
     <com.js.simple_seekbar.SimpleSeekBar
         android:id="@+id/simple_seek_bar"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"

@@ -11,11 +11,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val text = findViewById<SimpleSeekBar>(R.id.simple_seek_bar)
+        val seekBar = findViewById<SimpleSeekBar>(R.id.simple_seek_bar)
+        seekBar.setText(100_000, 60_000)
 
-        val button:Button = findViewById(R.id.btn)
-        button.setOnClickListener {
-            text.setText("집에가지마 베이비")
-        }
     }
 }
