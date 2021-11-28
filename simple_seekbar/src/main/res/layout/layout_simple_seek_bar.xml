@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingTop="8dp"
-    android:paddingBottom="8dp">
+    android:paddingTop="8dp">
 
     <TextView
         android:id="@+id/tv_min_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/v_seek_bar_second"
         app:layout_constraintStart_toStartOf="@id/v_seek_bar_second"
         app:layout_constraintTop_toBottomOf="@id/v_seek_bar_second"
@@ -25,6 +25,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/v_seek_bar_second"
         tools:text="500" />
 
     <TextView
@@ -33,8 +34,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@id/v_seek_bar_second"
-        app:layout_constraintStart_toEndOf="@id/v_seek_bar_second"
+        app:layout_constraintEnd_toEndOf="@id/v_seek_bar_base"
+        app:layout_constraintStart_toEndOf="@id/v_seek_bar_base"
+        app:layout_constraintTop_toBottomOf="@id/v_seek_bar_base"
         tools:text="1,000" />
 
     <TextView

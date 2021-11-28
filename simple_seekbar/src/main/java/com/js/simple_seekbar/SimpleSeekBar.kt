@@ -20,6 +20,8 @@ class SimpleSeekBar : ConstraintLayout {
 
     private var tvCurrentText: TextView
 
+    private lateinit var currentText: String
+
     constructor(context: Context) : super(context)
     constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
     constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr)
@@ -40,4 +42,97 @@ class SimpleSeekBar : ConstraintLayout {
         tvCurrentText = findViewById(R.id.tv_current_text)
     }
 
+    /**
+     * 텍스트 표시
+     */
+    fun setText(max: Int? = 1000, current: Int? = 700) {
+
+        tvMinText.text = 0.toString()
+        tvMidText.text = (max!!/2).toString()
+        tvMaxText.text = max.toString()
+
+        currentText = current.toString()
+        tvCurrentText.text = current.toString()
+
+        setValue(max, current!!)
+    }
+
+    /**
+     * dot, triangle, seekBar 의 drawable 파일 벼경
+     */
+    fun setViewBackground() {
+
+    }
+
+    /**
+     * Seekbar 계산해서 닷 위치 갱신하기
+     */
+    private fun setValue(maxVal: Int, current: Int) {
+
+        val lp = vSeekBarDot.layoutParams as LayoutParams
+
+        when {
+            //최저 미만
+            current < 0 -> {
+                tvCurrentText.setBackgroundResource(R.drawable.bg_round_04_text_purple)
+                vSeekBarTriangle.setBackgroundResource(R.drawable.bg_triangle_purple)
+                vSeekBarDot.setBackgroundResource(R.drawable.bg_dot_purple)
+                lp.horizontalBias = 0.07f
+                vSeekBarDot.layoutParams = lp
+            }
+            //최고 초과
+            maxVal < current -> {
+                tvCurrentText.setBackgroundResource(R.drawable.bg_round_04_text_purple)
+                vSeekBarTriangle.setBackgroundResource(R.drawable.bg_triangle_purple)
+                vSeekBarDot.setBackgroundResource(R.drawable.bg_dot_purple)
+                lp.horizontalBias = 0.93f
+                vSeekBarDot.layoutParams = lp
+            }
+            else -> {
+                tvCurrentText.setBackgroundResource(R.drawable.bg_round_04_text_purple)
+                vSeekBarTriangle.setBackgroundResource(R.drawable.bg_triangle_purple)
+                vSeekBarDot.setBackgroundResource(R.drawable.bg_dot_purple)
+
+                val sum: Float = when {
+                    maxVal - 0 == 0 -> 0.00f
+                    else -> (current * 1.00f / maxVal * 1.00f)
+                }
+
+                lp.horizontalBias = sum
+                vSeekBarDot.layoutParams = lp
+
+                val secondBarLayoutParams = vSeekBarSecond.layoutParams as LayoutParams
+                secondBarLayoutParams.endToEnd = vSeekBarDot.id
+
+                /*
+                val markerLayoutParams = marker.layoutParams as LayoutParams
+
+                val p = sum * 100
+                if (p >= 94f && p < 95f) {
+                    markerLayoutParams.horizontalBias = 0.575f
+                    marker.layoutParams = markerLayoutParams
+                }
+                if (p >= 95f && p < 96f) {
+                    markerLayoutParams.horizontalBias = 0.625f
+                    marker.layoutParams = markerLayoutParams
+                }
+                if (p >= 96f && p < 97f) {
+                    markerLayoutParams.horizontalBias = 0.675f
+                    marker.layoutParams = markerLayoutParams
+                }
+                if (p >= 97f && p < 98f) {
+                    markerLayoutParams.horizontalBias = 0.725f
+                    marker.layoutParams = markerLayoutParams
+                }
+                if (p >= 98f && p < 99f) {
+                    markerLayoutParams.horizontalBias = 0.775f
+                    marker.layoutParams = markerLayoutParams
+                }
+                if (p in 99f..100f) {
+                    markerLayoutParams.horizontalBias = 0.825f
+                    marker.layoutParams = markerLayoutParams
+                }*/
+            }
+        }
+    }
 }
