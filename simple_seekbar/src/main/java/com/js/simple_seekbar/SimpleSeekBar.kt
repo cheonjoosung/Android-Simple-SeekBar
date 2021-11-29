@@ -22,6 +22,8 @@ class SimpleSeekBar : ConstraintLayout {
 
     private lateinit var currentText: String
 
+    private var unit: String = ""
+
     constructor(context: Context) : super(context)
     constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
     constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr)
@@ -43,12 +45,19 @@ class SimpleSeekBar : ConstraintLayout {
     }
 
     /**
+     * Unit (won, p, cm etc)
+     */
+    fun setUnit(unit: String) {
+        this.unit = unit
+    }
+
+    /**
      * 텍스트 표시
      */
     fun setText(max: Int? = 1000, current: Int? = 700) {
 
         tvMinText.text = 0.toString()
-        tvMidText.text = (max!!/2).toString()
+        tvMidText.text = (max!! / 2).toString()
         tvMaxText.text = max.toString()
 
         currentText = current.toString()
@@ -58,10 +67,22 @@ class SimpleSeekBar : ConstraintLayout {
     }
 
     /**
-     * dot, triangle, seekBar 의 drawable 파일 벼경
+     * dot, triangle, seekBar 의 drawable 파일 변경
      */
-    fun setViewBackground() {
+    fun setViewBackground(
+            resMainBar: Int? = null,
+            resSecondBar: Int? = null,
+            resDot: Int? = null,
+            resMarkerDown: Int? = null,
+            resTitle: Int? = null
+    ) {
+        if (resMainBar != null) vSeekBarBase.setBackgroundResource(resMainBar)
+        if (resSecondBar != null) vSeekBarSecond.setBackgroundResource(resSecondBar)
 
+        if (resDot != null) vSeekBarDot.setBackgroundResource(resDot)
+        if (resMarkerDown != null) vSeekBarTriangle.setBackgroundResource(resMarkerDown)
+
+        if (resTitle != null) tvCurrentText.setBackgroundResource(resTitle)
     }
 
     /**
