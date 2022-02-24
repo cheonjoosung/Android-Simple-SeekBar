@@ -1,39 +1,24 @@
-# Android-Simple-SeekBar
+# Simple-Seek-Bar
 
-#Grdle
-    ##Step 1
-	allprojects {
+This is a 
+
+## Installation
+
+Add below code in gradle (project)
+
+```bash
+allprojects {
 		repositories {
 			...
 			maven { url 'https://jitpack.io' }
 		}
 	}
-
-    ##Step 2
-    dependencies {
+```
+Add below codes in gradle (module)
+```bash
+dependencies {
             implementation 'com.github.cheonjoosung:Android-Simple-SeekBar:Tag'
     }
+```
 
-#mavn
-    ##Step.1
-	<repositories>
-		<repository>
-		    <id>jitpack.io</id>
-		    <url>https://jitpack.io</url>
-		</repository>
-	</repositories>
-
-    ##Step.2
-	<dependency>
-	    <groupId>com.github.cheonjoosung</groupId>
-	    <artifactId>Android-Simple-SeekBar</artifactId>
-	    <version>Tag</version>
-	</dependency>
-	
-#sbt
-   resolvers += "jitpack" at "https://jitpack.io"
-   libraryDependencies += "com.github.cheonjoosung" % "Android-Simple-SeekBar" % "Tag"	
-
-#leiningen
-    :repositories [["jitpack" "https://jitpack.io"]]
-    dependencies [[com.github.cheonjoosung/Android-Simple-SeekBar "Tag"]]	
+## License
